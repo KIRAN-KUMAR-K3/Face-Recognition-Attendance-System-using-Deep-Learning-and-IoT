@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80">
+  <style>
+    .logo-text { font-family: Arial, sans-serif; font-weight: bold; }
+    .main-text { font-size: 16px; }
+    .sub-text { font-size: 10px; }
+  </style>
+  <rect width="200" height="80" rx="10" fill="#1E88E5"/>
+  <text x="50%" y="30" class="logo-text main-text" fill="white" text-anchor="middle">ALVA'S</text>
+  <text x="50%" y="45" class="logo-text sub-text" fill="white" text-anchor="middle">INSTITUTE OF ENGINEERING</text>
+  <text x="50%" y="58" class="logo-text sub-text" fill="white" text-anchor="middle">AND TECHNOLOGY</text>
+</svg>
