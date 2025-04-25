@@ -6,51 +6,76 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Kali%20Linux%20|%20Replit-lightgrey)](#)
 
-A lightweight and modular **face recognition-based attendance system** powered by **OpenCV** and integrated with **Telegram** for real-time attendance alerts. Designed to work in **resource-constrained** environments like Kali Linux or Replit, without depending on heavy libraries like `dlib`.
+An advanced and modular **Face Recognition-Based Attendance System** designed for academic institutions. Built with **Python**, **OpenCV**, **Streamlit**, and **SQLite**, this system offers **real-time attendance**, **secure user roles**, **automated reports**, and **Telegram integration** — all optimized for deployment on environments like **Kali Linux** or **Replit**.
 
 ---
 
-## 📸 Features
+## 🚀 Key Features
 
-- ✅ Face detection using Haar Cascades (OpenCV)
-- ✅ Face recognition using LBPH (training & prediction pipeline ready)
-- ✅ Attendance marking with date & time logging
-- ✅ SQLite-powered local database
-- ✅ Telegram integration for real-time attendance alerts
-- ✅ Report generation with CSV export
-- ✅ Web UI using Streamlit
-- ✅ Image upload support for platforms like Replit
+### 🔐 User Authentication & Roles
+- Faculty login system with secure password management
+- Role-based access (Admin vs Regular Faculty)
+- Session and privilege management
 
----
+### 👨‍🎓 Student Management
+- Add/edit/delete student records
+- Register face images linked to student profiles
+- Branch, semester, and section categorization
 
-## 🖥️ Project Demo
+### 📸 Face Recognition Attendance
+- Real-time face recognition via webcam or image upload
+- Batch face detection and attendance marking
+- Adjustable recognition confidence thresholds
 
-> Coming soon — demo video & screenshots
+### 📚 Subject Management
+- Create/manage subjects with metadata
+- Assign subjects to faculty
+- Map subjects to specific branches and semesters
+
+### 📈 Attendance Reporting & Analytics
+- Detailed reports with date, subject, and student filters
+- Export attendance as **PDF** or **CSV**
+- Graphs and charts for trends, stats, and comparisons
+
+### 📲 Telegram Integration
+- Real-time attendance notifications
+- Auto-report generation and sharing
+- Sync logs and status messages via bot
+
+### 💻 Modern Web Interface
+- Responsive and intuitive Streamlit UI
+- Light/Dark mode toggle
+- Real-time UI status updates and quick access
+
+### 💾 Data Management
+- SQLite backend with automatic syncing
+- Face encoding storage and lookup
+- Periodic data backup and restore utilities
 
 ---
 
 ## 📁 Project Structure
 
 ```
-Face-Recognition-Attendance-System-using-Deep-Learning-and-IoT/
+Face-Recognition-Attendance-System/
 │
 ├── app.py                    # Main Streamlit app
-├── database.py               # SQLite helper functions
-├── face_recognition_utils.py # Face detection & recognition logic
-├── telegram_utils.py         # Telegram messaging support
-├── report_generator.py       # Attendance report functions
-├── attendance_system.db      # Local SQLite database
-├── requirements.txt          # Python dependencies
+├── database.py               # SQLite logic & queries
+├── face_recognition_utils.py # Face encoding, detection, recognition
+├── telegram_utils.py         # Telegram bot notifications
+├── report_generator.py       # Report export (PDF, CSV)
+├── pages/                    # Modular app pages
+├── assets/                   # Static images, icons
+├── attendance_system.db      # SQLite database file
+├── requirements.txt          # Dependencies
 ├── pyproject.toml            # Project metadata
-├── uv.lock                   # Lock file (Poetry)
-├── pages/                    # Multi-page Streamlit UI
-├── assets/                   # Icons, images
-└── README.md                 # Project documentation
+├── uv.lock                   # Poetry/venv lock file
+└── README.md                 # This file
 ```
 
 ---
 
-## 🚀 Installation & Setup
+## ⚙️ Installation & Setup
 
 ### 🔧 1. Clone the Repository
 
@@ -59,10 +84,9 @@ git clone https://github.com/KIRAN-KUMAR-K3/Face-Recognition-Attendance-System-u
 cd Face-Recognition-Attendance-System-using-Deep-Learning-and-IoT
 ```
 
-### 🐍 2. Create Virtual Environment
+### 🐍 2. Set Up a Virtual Environment
 
 ```bash
-# Kali & Linux
 sudo apt install python3-venv
 python3 -m venv venv
 source venv/bin/activate
@@ -74,7 +98,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### ▶️ 4. Run the App
+### ▶️ 4. Run the Application
 
 ```bash
 streamlit run app.py
@@ -84,71 +108,68 @@ streamlit run app.py
 
 ## 🤖 Telegram Bot Setup (Optional)
 
-Enable real-time attendance alerts via Telegram:
-
-1. Open [@BotFather](https://t.me/botfather) and create a new bot
-2. Copy your **API Token**
-3. Update `telegram_utils.py`:
+To enable notifications:
+1. Use [@BotFather](https://t.me/BotFather) on Telegram to create a bot.
+2. Copy the **Bot Token** and **Chat ID**.
+3. Open `telegram_utils.py` and update:
    ```python
    TELEGRAM_API_KEY = 'your_api_key'
    TELEGRAM_CHAT_ID = 'your_chat_id'
    ```
-4. Or use demo mode (no message will be sent)
 
 ---
 
-## 🧠 How It Works
+## 📊 Reporting & Export
 
-| Step | Function |
-|------|----------|
-| Upload Face | User uploads image of their face |
-| Detect Face | OpenCV detects face using Haar Cascades |
-| Train Model | LBPH model stores face encodings |
-| Predict | Matches new input with known faces |
-| Log Attendance | Name + Time stored in SQLite DB |
-| Notify | Optional Telegram alert sent |
+- View reports by date, subject, or student
+- Download as **CSV** or **PDF**
+- Visual graphs show:
+  - Daily attendance %
+  - Branch/subject-wise trends
+  - Student-wise analytics
 
 ---
 
-## 📊 Attendance Report
+## 🛡️ Security
 
-- CSV logs stored daily
-- Exportable attendance list
-- Report summary available in UI
+- Secure password hashing
+- Admin-controlled subject access
+- Role-based visibility for pages and actions
+- Optional logout timeout/session protection
 
 ---
 
 ## 🧪 Future Enhancements
 
-- 🔐 Admin login & user roles
-- 📹 Live webcam capture (local-only)
-- 🧠 CNN-based face recognition (via TensorFlow Lite)
-- ☁️ Cloud-based database integration
-- 📈 Analytics dashboard (attendance trends)
+- Admin dashboard with full control
+- OTP-based student verification
+- Multi-device face recognition (mobile + web)
+- Cloud storage support (Firebase, AWS S3)
+- AI-powered duplicate face prevention
 
 ---
 
-## 🤝 Contribution Guidelines
+## 🙌 Contributing
 
-Contributions are welcome! Here's how:
+Pull requests are welcome! Please follow standard GitHub practice:
 
 ```bash
 # Fork the repository
-# Clone your fork
-# Create a new branch
-# Make your changes
-# Submit a pull request 🚀
+# Create a feature branch
+# Commit with clear messages
+# Push and create a PR
 ```
 
-Please follow [PEP8](https://pep8.org/) and include comments/documentation.
+Follow PEP8 formatting and include docstrings for functions.
 
 ---
 
-## 📚 Resources
+## 📚 Useful Resources
 
-- [OpenCV Documentation](https://docs.opencv.org/)
 - [Streamlit Docs](https://docs.streamlit.io/)
+- [OpenCV Docs](https://docs.opencv.org/)
 - [Telegram Bot API](https://core.telegram.org/bots/api)
+- [SQLite Docs](https://www.sqlite.org/index.html)
 
 ---
 
@@ -156,15 +177,14 @@ Please follow [PEP8](https://pep8.org/) and include comments/documentation.
 
 **Kiran Kumar K**  
 🔗 [GitHub](https://github.com/KIRAN-KUMAR-K3)  
-📍 IISc Bangalore (InfoSec Intern)
+🧠 Information Security Intern, IISc Bangalore
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.  
-Feel free to use and modify with attribution.
+Licensed under the **MIT License** — you are free to use, modify, and distribute this project with attribution.
 
 ---
 
-> _Built with 💡 by a cybersecurity enthusiast — bridging AI, IoT, and security._
+> _Built with ❤️ for smarter attendance and intelligent security._
